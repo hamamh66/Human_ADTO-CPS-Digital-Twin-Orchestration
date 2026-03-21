@@ -1,0 +1,6 @@
+policy,latency,queue
+HC-DT Balanced,100.0,0.0
+HC-DT Energy,100.0,0.0
+HC-DT Latency,100.0,0.0
+HC-DT Override,100.0,0.0
+HC-DT Reliability,80.0,20.0
