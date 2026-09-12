@@ -165,4 +165,25 @@ This repository supports reproducible research in:
 - Industrial AI  
 - Explainable AI  
 - Human-in-the-loop systems  
-- Smart CPS orchestration  
+- Smart CPS orchestration
+
+## Revision R2 (Computers & Industrial Engineering, CAIE-D-26-02031): discrete-event simulator
+
+The evaluation reported in the revised manuscript is produced by a discrete-event simulator that executes the HC-DTO orchestration algorithm task by task (task streams, heterogeneous nodes, score minimization, online trust update, stochastic operator intervention, review, safety check, decision quality, explanation traces).
+
+- `hcdto_des.py` — the simulator (all model constants are module-level and reported in the manuscript).
+- `run_experiments.py` — runs the full grid (scalability, workload, failure, ablation, kappa sensitivity; 12 seeded trials); writes summaries to `Outputs/Tables/` and raw per-trial results to `Outputs/Others/`.
+- `make_manuscript_figures.py` — regenerates every figure and table of the manuscript from `Outputs/` (figures to `Outputs/Figures/`, tables to `Outputs/Tables/`).
+- `HC_DTO_DES_Experiments.ipynb` — Colab notebook running the above; outputs go to `MyDrive/Outputs/HC_DTO/{Figures,Tables,Others}`.
+- `legacy/HC_ADTO_CPS_Human_Centric_DT.ipynb` — the earlier response-surface notebook, retained for provenance only; it is no longer used by the manuscript and its outputs were removed.
+
+## Repository layout
+
+```
+root/                  simulator, scripts, notebook, README, LICENSE
+root/Outputs/Figures/  manuscript figures (PNG)
+root/Outputs/Tables/   summary and manuscript tables (CSV)
+root/Outputs/Others/   raw per-trial results (CSV)
+root/legacy/           earlier notebook (provenance)
+```
+

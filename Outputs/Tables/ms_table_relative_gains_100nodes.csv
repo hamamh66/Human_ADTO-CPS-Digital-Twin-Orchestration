@@ -1,0 +1,6 @@
+Baseline,latency,energy,success,failure
+AI-only DT,3.8,6.1,1.5,6.8
+Greedy,9.8,12.7,1.8,2.5
+Random,60.2,12.6,48.1,6.1
+Local,58.1,12.3,51.0,70.5
+Cloud,58.9,48.0,113.2,-374.4

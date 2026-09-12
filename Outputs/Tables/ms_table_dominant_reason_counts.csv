@@ -1,0 +1,7 @@
+,energy,human_preference,latency,queue
+AI-only DT,31,0,0,29
+HC-DTO Balanced,13,43,0,4
+HC-DTO Energy,56,0,0,4
+HC-DTO Latency,0,0,4,56
+HC-DTO Override,0,60,0,0
+HC-DTO Reliability,0,58,0,2

@@ -1,5 +1,0 @@
-load_name,best_hc_policy,trust_weighted_quality_mean,operator_acceptance_rate_mean
-extreme,hc_dt_reliability,0.8705282959999999,0.6839999999999998
-high,hc_dt_reliability,0.891499076,0.702
-low,hc_dt_reliability,0.926810376,0.7319999999999999
-medium,hc_dt_reliability,0.9126318559999999,0.7200000000000001

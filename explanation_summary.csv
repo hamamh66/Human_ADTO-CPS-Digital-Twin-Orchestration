@@ -1,8 +1,0 @@
-policy,top_explanation_reason,count
-dt,latency,60
-hc_dt_balanced,latency,60
-hc_dt_energy,latency,60
-hc_dt_latency,latency,60
-hc_dt_override,latency,60
-hc_dt_reliability,latency,48
-hc_dt_reliability,queue,12
