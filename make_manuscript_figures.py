@@ -64,7 +64,7 @@ def gain(metric, low, ref):
 g = [dict(Baseline=NAMES[ref], latency=round(gain('avg_latency_mean', True, ref), 1), energy=round(gain('avg_energy_mean', True, ref), 1),
           success=round(gain('deadline_success_rate_mean', False, ref), 1), failure=round(gain('task_failure_ratio_mean', True, ref), 1)) for ref in ['dt','greedy','random','local','cloud']]
 pd.DataFrame(g).to_csv(TAB / 'ms_table_relative_gains_100nodes.csv', index=False)
-hrows = [dict(Mode=NAMES[p], IR=pm(t.loc[p,'operator_intervention_rate_mean'], t.loc[p,'operator_intervention_rate_std']), AR=pm(t.loc[p,'operator_acceptance_rate_mean'], t.loc[p,'operator_acceptance_rate_std']),
+hrows = [dict(Mode=NAMES[p], IR=pm(t.loc[p,'operator_intervention_rate_mean'], t.loc[p,'operator_intervention_rate_std']), ARR=pm(t.loc[p,'operator_acceptance_rate_mean'], t.loc[p,'operator_acceptance_rate_std']),
               SR=pm(t.loc[p,'safety_assignment_ratio_mean'], t.loc[p,'safety_assignment_ratio_std']), EC=pm(t.loc[p,'explanation_consistency_mean'], t.loc[p,'explanation_consistency_std']),
               Q=pm(t.loc[p,'trust_weighted_quality_mean'], t.loc[p,'trust_weighted_quality_std'])) for p in ['dt'] + HC + ['human_only']]
 pd.DataFrame(hrows).to_csv(TAB / 'ms_table_human_centric_100nodes.csv', index=False)

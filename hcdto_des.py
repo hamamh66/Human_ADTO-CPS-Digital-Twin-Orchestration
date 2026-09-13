@@ -213,6 +213,8 @@ def simulate(policy: str, K: int, load: float, phi: float, trial: int, weights=N
                deadline_success_rate=float(ok.mean()), task_failure_ratio=float(failed.mean()),
                throughput=float(done.sum() / horizon),
                operator_intervention_rate=float(interv.mean()) if (is_hc or policy == HUMAN_ONLY) else 0.0,
+               # AI-recommendation retention rate (ARR in the manuscript): fraction of ALL tasks
+               # for which the AI recommendation was retained (either not reviewed, or reviewed and accepted).
                operator_acceptance_rate=float(accepted.mean()) if (is_hc or policy == HUMAN_ONLY) else 1.0,
                safety_assignment_ratio=float(safe.mean()),
                trust_weighted_quality=float(Q.mean()))
