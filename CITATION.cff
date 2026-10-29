@@ -3,6 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "HC-DTO: Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems"
 version: 1.0.0
 date-released: 2026-10-29
+doi: 10.5281/zenodo.23774878
 license: MIT
 repository-code: "https://github.com/hamamh66/Human_ADTO-CPS-Digital-Twin-Orchestration"
 authors:
