@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "HC-DTO: Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems"
+version: 1.0.0
+date-released: 2026-10-29
+license: MIT
+repository-code: "https://github.com/hamamh66/Human_ADTO-CPS-Digital-Twin-Orchestration"
+authors:
+  - family-names: Hamam
+    given-names: Habib
+    affiliation: "Université de Moncton"
+keywords:
+  - digital twin
+  - discrete-event simulation
+  - multi-objective design
+  - uncertainty quantification
+  - cyber-physical systems
+  - human-in-the-loop

@@ -1,0 +1,12 @@
+Strategy,Non-dominated,Operating points,Share
+Cloud,0,12,0.0
+Local,0,12,0.0
+Random,0,12,0.0
+Greedy,1,12,0.083
+AI-only DT,12,12,1.0
+HC-DTO Balanced,12,12,1.0
+HC-DTO Reliability,0,12,0.0
+HC-DTO Latency,12,12,1.0
+HC-DTO Energy,12,12,1.0
+HC-DTO Override,0,12,0.0
+Human-only,0,5,0.0

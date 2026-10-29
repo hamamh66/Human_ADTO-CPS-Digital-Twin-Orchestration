@@ -1,0 +1,13 @@
+operating_point,non_dominated
+K=20,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+K=50,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+K=100,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+K=200,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+K=400,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+load=extreme,"['AI-only DT', 'Greedy', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+load=high,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+load=low,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+phi=0.0,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+phi=0.05,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+phi=0.2,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"
+phi=0.3,"['AI-only DT', 'HC-DTO Balanced', 'HC-DTO Energy', 'HC-DTO Latency']"

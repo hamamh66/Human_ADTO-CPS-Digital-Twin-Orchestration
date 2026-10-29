@@ -1,189 +1,45 @@
-# ADTO-CPS-Digital-Twin-Orchestration
+# HC-DTO: Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems
 
-Official reproducibility repository for the paper:
+Reproducible, simulation-based design workflow for orchestration policies in industrial cyber-physical systems (CPS). A seeded discrete-event digital twin executes a weighted multi-criteria task allocator (latency, energy, queueing delay, node trust, human-preference compatibility) task by task, together with a stylized operator-intervention model, a safety check and per-decision explanation traces. All strategies are compared on identical node populations, task streams and failure events.
 
-**Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems: Trust-Aware, Explainable, and Human-in-the-Loop AI Decision Support**
+This repository accompanies the article *Simulation-Based Design and Evaluation of Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems*. Every figure and table value in the article is regenerated from the files here.
 
----
+## Contents
 
-## 📌 Overview
+| File | Purpose |
+|---|---|
+| `hcdto_des.py` | Discrete-event simulator: nodes, Poisson task stream, failure injection, composite score, trust update, operator model, safety check, explanation trace, baselines |
+| `run_experiments.py` | Full experiment grid: scalability (20–400 nodes), workload (4 levels), node failures (0–30 %), ablation, operator proficiency; 12 seeded replications each |
+| `make_manuscript_figures.py` | Figures 1–11 and the summary tables |
+| `design_analysis.py` | Multi-objective non-dominance analysis over the operating points, paired 95 % confidence intervals versus the AI-only DT baseline, latency–energy trade-off figure |
+| `HC_DTO_DES_Experiments.ipynb` | Colab notebook running all of the above end to end |
+| `Outputs/Others/` | Raw per-trial results (CSV) |
+| `Outputs/Tables/` | Summary tables and article table values (CSV) |
+| `Outputs/Figures/` | Article figures (PNG, 300 dpi) |
 
-This repository provides the **Python implementation and experimental workflow** used to reproduce the results presented in the paper. The framework introduces a **human-centric digital twin orchestration architecture** for industrial cyber-physical systems (CPS), integrating:
+## Strategies
 
-- Trust-aware decision-making  
-- Explainable AI (XAI) mechanisms  
-- Human-in-the-loop intervention  
-- Multi-policy orchestration strategies  
-- Scenario-based system evaluation  
+Baselines: Cloud, Local, Random, Greedy (minimum projected queue), AI-only DT (same score without trust and human terms), and a stylized Human-only mode. HC-DTO profiles: Balanced, Reliability, Latency, Energy, Override (weight vectors listed in `hcdto_des.py`).
 
-The goal is to bridge the gap between **autonomous orchestration** and **human-centered control**, enabling more reliable, interpretable, and adaptive CPS operations.
+## Reproduce
 
----
-
-## 🧠 Key Features
-
-- Hybrid **Digital Twin + Human-Centric Orchestration**
-- Multi-objective optimization (latency, energy, reliability)
-- Trust-aware decision scoring
-- Explainability-aware orchestration decisions
-- Human override and intervention modeling
-- Comparative evaluation against baseline policies
-- Fully reproducible simulation-based experiments
-
----
-
-## 📂 Repository Structure
-
-ADTO-CPS-Digital-Twin-Orchestration/
-│
-├── HC_ADTO_CPS_Human_Centric_DT.ipynb   # Main notebook (core implementation)
-├── paper.pdf                            # Associated research paper
-├── README.md                            # Repository documentation
-├── requirements.txt                     # Python dependencies
-├── results/                             # Generated outputs
-│   ├── figures/
-│   ├── tables/
-│   └── logs/
-
----
-
-## ⚙️ Installation
-
-Clone the repository:
-
-git clone https://github.com/hamamh66/ADTO-CPS-Digital-Twin-Orchestration.git
-cd ADTO-CPS-Digital-Twin-Orchestration
-
-Install dependencies:
-
+```bash
 pip install -r requirements.txt
-
----
-
-## ▶️ Usage
-
-Launch the notebook:
-
-jupyter notebook HC_ADTO_CPS_Human_Centric_DT.ipynb
-
-Run all cells sequentially to:
-
-- Simulate CPS orchestration scenarios  
-- Compare baseline and human-centric policies  
-- Generate performance metrics  
-- Export figures and tables  
-
----
-
-## 🧪 Experimental Design
-
-### 🔹 Baseline Policies
-- Cloud
-- Local
-- Random
-- Greedy
-- Digital Twin (DT)
-
-### 🔹 Human-Centric Policies
-- HC-DT Balanced  
-- HC-DT Reliability  
-- HC-DT Latency  
-- HC-DT Energy  
-- HC-DT Override  
-
----
-
-## 📊 Evaluation Scenarios
-
-The framework evaluates system behavior under multiple conditions:
-
-- Scalability (increasing number of nodes)
-- Workload stress
-- Failure and disruption scenarios
-- Trust-aware decision quality
-- Explanation consistency
-- Ablation analysis
-
----
-
-## 📈 Output
-
-Running the notebook generates:
-
-- Performance comparison plots  
-- Latency / energy / reliability trade-offs  
-- Trust-weighted decision metrics  
-- Explanation usage statistics  
-- Tables aligned with the paper results  
-
-All outputs are saved in:
-
-results/
-
----
-
-## 🔁 Reproducibility
-
-- Fixed random seeds are used for deterministic simulations  
-- All experiments can be reproduced directly from the notebook  
-- No external/private datasets are required  
-
----
-
-## 📚 Citation
-
-If you use this repository, please cite:
-
-@article{hamam2026adto,
-  title={Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems},
-  author={Hamam, Habib and others},
-  journal={...},
-  year={2026}
-}
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## 👤 Contact
-
-**Prof. Habib Hamam**  
-Université de Moncton  
-Email: Habib.Hamam@umoncton.ca  
-
----
-
-## 🚀 Acknowledgment
-
-This repository supports reproducible research in:
-
-- Digital Twins  
-- Industrial AI  
-- Explainable AI  
-- Human-in-the-loop systems  
-- Smart CPS orchestration
-
-## Revision R2 (Computers & Industrial Engineering, CAIE-D-26-02031): discrete-event simulator
-
-The evaluation reported in the revised manuscript is produced by a discrete-event simulator that executes the HC-DTO orchestration algorithm task by task (task streams, heterogeneous nodes, score minimization, online trust update, stochastic operator intervention, review, safety check, decision quality, explanation traces).
-
-- `hcdto_des.py` — the simulator (all model constants are module-level and reported in the manuscript).
-- `run_experiments.py` — runs the full grid (scalability, workload, failure, ablation, kappa sensitivity; 12 seeded trials); writes summaries to `Outputs/Tables/` and raw per-trial results to `Outputs/Others/`.
-- `make_manuscript_figures.py` — regenerates every figure and table of the manuscript from `Outputs/` (figures to `Outputs/Figures/`, tables to `Outputs/Tables/`).
-- `HC_DTO_DES_Experiments.ipynb` — Colab notebook running the above; outputs go to `MyDrive/Outputs/HC_DTO/{Figures,Tables,Others}`.
-- `legacy/HC_ADTO_CPS_Human_Centric_DT.ipynb` — the earlier response-surface notebook, retained for provenance only; it is no longer used by the manuscript and its outputs were removed.
-
-## Repository layout
-
-```
-root/                  simulator, scripts, notebook, README, LICENSE
-root/Outputs/Figures/  manuscript figures (PNG)
-root/Outputs/Tables/   summary and manuscript tables (CSV)
-root/Outputs/Others/   raw per-trial results (CSV)
-root/legacy/           earlier notebook (provenance)
+python run_experiments.py          # about 7 min on one CPU core; skips families whose raw CSV already exists
+python make_manuscript_figures.py
+python design_analysis.py
 ```
 
+Delete `Outputs/Others/*.csv` first to re-simulate from scratch. In Colab, open the notebook and run all cells; outputs go to `MyDrive/Outputs/HC_DTO/`.
+
+## Scope
+
+The operator is a stylized model (logistic intervention in the normalized score margin, familiarity ratings drawn per node). Human-centric indicators produced here are emergent outcomes of that model, not measurements of real operators. Results are in model time and energy units.
+
+## Citation
+
+See `CITATION.cff`. An archived release with a DOI is available on Zenodo.
+
+## License
+
+MIT

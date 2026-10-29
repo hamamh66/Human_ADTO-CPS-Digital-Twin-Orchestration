@@ -1,0 +1,9 @@
+{
+  "title": "HC-DTO: Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "license": "MIT",
+  "creators": [{"name": "Hamam, Habib", "affiliation": "Université de Moncton"}],
+  "description": "Seeded discrete-event simulator of human-centric digital twin orchestration for industrial cyber-physical systems, with the experiment grid (scalability, workload, node failures, ablation, operator proficiency), multi-objective non-dominance analysis with paired 95% confidence intervals, raw per-trial results, and scripts that regenerate all figures and tables.",
+  "keywords": ["digital twin", "discrete-event simulation", "multi-objective design", "uncertainty quantification", "cyber-physical systems", "human-in-the-loop", "simulation-based engineering design"]
+}
