@@ -1,0 +1,17 @@
+streams,high_failure,high_load,nominal,nominal_sync0.1,nominal_sync1
+energy,0.658,0.658,0.66,0.66,0.66
+energy+familiarity,0.68,0.673,0.673,0.673,0.673
+energy+reliability,0.701,0.682,0.684,0.684,0.684
+energy+reliability+familiarity,0.709,0.7,0.707,0.707,0.707
+familiarity,0.873,0.869,0.859,0.859,0.859
+none,1.0,1.001,0.994,0.994,0.994
+queue,0.983,0.983,0.983,0.981,0.987
+queue+energy,0.903,0.96,0.893,0.831,0.725
+queue+energy+familiarity,0.907,0.959,0.898,0.857,0.767
+queue+energy+reliability,0.905,0.962,0.894,0.842,0.763
+queue+energy+reliability+familiarity,0.908,0.959,0.9,0.862,0.789
+queue+familiarity,0.98,0.983,0.981,0.975,0.97
+queue+reliability,0.983,0.983,0.984,0.985,1.03
+queue+reliability+familiarity,0.982,0.983,0.981,0.978,0.995
+reliability,0.997,0.988,0.979,0.979,0.979
+reliability+familiarity,0.97,0.934,0.973,0.973,0.973
