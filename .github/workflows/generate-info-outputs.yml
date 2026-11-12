@@ -1,0 +1,64 @@
+name: Generate information-integration outputs
+on:
+  push:
+    paths:
+      - '.github/workflows/generate-info-outputs.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Run experiments and figures
+        run: |
+          python run_info_experiments.py
+          python make_info_figures.py
+      - name: Add notebook section 5
+        run: |
+          python - <<'EOF'
+          import json
+          f = 'HC_DTO_DES_Experiments.ipynb'
+          nb = json.load(open(f))
+          if not any('## 5. Information-integration experiments' in ''.join(c['source']) for c in nb['cells']):
+              def md(t): return {"cell_type": "markdown", "metadata": {}, "source": t.splitlines(True)}
+              def code(t): return {"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [], "source": t.splitlines(True)}
+              c1 = "## 5. Information-integration experiments\nValue of each integrated information stream (all 16 combinations, exact Shapley attribution) and freshness requirement of the twin queue state (snapshot and dead-reckoning twins). About 10 min on a Colab CPU; progress is printed after every configuration, and small result files are written to the output folder.\n"
+              c2 = "\n".join([
+                  "import urllib.request, os, subprocess, sys",
+                  "BASE = 'https://raw.githubusercontent.com/hamamh66/Human_ADTO-CPS-Digital-Twin-Orchestration/main/'",
+                  "for f in ('hcdto_info.py', 'run_info_experiments.py', 'make_info_figures.py'):",
+                  "    if not os.path.exists(f):",
+                  "        urllib.request.urlretrieve(BASE + f, f); print('fetched', f)",
+                  "# streams the progress lines of the driver as they are produced",
+                  "p = subprocess.Popen([sys.executable, '-u', 'run_info_experiments.py', OUTPUT_DIR], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)",
+                  "for line in p.stdout: print(line, end='')",
+                  "assert p.wait() == 0, 'run_info_experiments.py failed'",
+                  "print(subprocess.run([sys.executable, 'make_info_figures.py', OUTPUT_DIR], capture_output=True, text=True).stdout)",
+                  ""])
+              c3 = "\n".join([
+                  "import pandas as pd",
+                  "from IPython.display import display, Image",
+                  "T = OUTPUT_DIR + '/Tables/'",
+                  "display(pd.read_csv(T + 'ms_table_information_value.csv'))",
+                  "display(pd.read_csv(T + 'ms_table_coalitions_success.csv'))",
+                  "display(pd.read_csv(T + 'ms_table_sync_breakeven.csv'))",
+                  "display(pd.read_csv(T + 'ms_table_reckoning.csv'))",
+                  "for f in ('ms_fig13_success_vs_sync.png', 'ms_fig14_envelope_and_reckoning.png'):",
+                  "    display(Image(OUTPUT_DIR + '/Figures/' + f, width=760))",
+                  ""])
+              nb['cells'] += [md(c1), code(c2), code(c3)]
+              json.dump(nb, open(f, 'w'), indent=1)
+          EOF
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Outputs HC_DTO_DES_Experiments.ipynb
+          git commit -m "Add outputs of the information-integration experiments and notebook section 5"
+          git push
