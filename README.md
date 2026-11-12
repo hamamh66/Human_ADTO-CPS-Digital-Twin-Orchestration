@@ -47,7 +47,7 @@ The operator is a stylized model (logistic intervention in the normalized score 
 
 ## Citation
 
-See `CITATION.cff`. Archived release v1.0.0: [doi:10.5281/zenodo.23774878](https://doi.org/10.5281/zenodo.23774878).
+See `CITATION.cff`. Archived releases on Zenodo (all versions): [doi:10.5281/zenodo.23774877](https://doi.org/10.5281/zenodo.23774877).
 
 ## License
 

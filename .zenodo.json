@@ -1,9 +1,25 @@
 {
   "title": "HC-DTO: Human-Centric Digital Twin Orchestration for Industrial Cyber-Physical Systems",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
-  "creators": [{"name": "Hamam, Habib", "affiliation": "Université de Moncton"}],
-  "description": "Seeded discrete-event simulator of human-centric digital twin orchestration for industrial cyber-physical systems, with the experiment grid (scalability, workload, node failures, ablation, operator proficiency), multi-objective non-dominance analysis with paired 95% confidence intervals, raw per-trial results, and scripts that regenerate all figures and tables.",
-  "keywords": ["digital twin", "discrete-event simulation", "multi-objective design", "uncertainty quantification", "cyber-physical systems", "human-in-the-loop", "simulation-based engineering design"]
+  "creators": [
+    {
+      "name": "Hamam, Habib",
+      "affiliation": "Université de Moncton",
+      "orcid": "0000-0002-5320-1012"
+    }
+  ],
+  "description": "Seeded discrete-event simulator of digital twin orchestration for industrial cyber-physical systems, treated as an information-integration problem. It includes the base experiment grid (scalability, workload, node failures, ablation, operator proficiency), multi-objective non-dominance analysis with paired 95% confidence intervals, and the information-integration experiments: exact Shapley attribution of placement performance to four integrated information streams (twin queue state, energy model, outcome history, operator familiarity) and the freshness analysis of twin queue state (snapshot and dead-reckoning twins with several dispatchers). Raw per-trial results, summary tables, a Colab notebook, and scripts that regenerate every figure and table are included.",
+  "keywords": [
+    "digital twin",
+    "industrial information integration",
+    "information freshness",
+    "state synchronization",
+    "Shapley value",
+    "discrete-event simulation",
+    "cyber-physical systems",
+    "human-in-the-loop",
+    "task orchestration"
+  ]
 }
